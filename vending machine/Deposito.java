@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 public class Deposito {
 
     private double totale;
