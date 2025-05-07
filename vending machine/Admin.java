@@ -52,6 +52,28 @@ public class Admin {
                     vm.SostituisciProdotto(idProdotto, nome, prezzo, quantita);
                     break;
                 }
+                case 3:{
+                    vm.getDeposito().mostraDeposito();
+                    double depositoRitirato = vm.getDeposito().ritira();
+                    System.out.println("Hai ritirato:" + depositoRitirato);
+                    break;
+                }
+                case 4:{
+                    String risposta;
+                    do{
+                        vm.getCassa().mostraCassa();
+                        System.out.println("Inserisci il taglio di moneta da inserire:");
+                        double valore = sc.nextDouble();
+                        System.out.println("Inserisci la quantità di monete da aggiungere:");
+                        int quantita = sc.nextInt();
+                        vm.getCassa().aggiungiMonete(valore, quantita);
+                        sc.nextLine();
+
+                        System.out.println("Vuoi inserire altre monete?");
+                        risposta = sc.nextLine();
+                    }while(risposta.equalsIgnoreCase("si"));   
+                    break;
+                }
                 case 0: {
                     continua = false;
                     break;
@@ -60,14 +82,7 @@ public class Admin {
                     System.out.println("Scelta non valida. Inserire un numero da 0 a 4");
                 }
             }
-
-
         }
-
-    }
-
-   
-
-    
-    
+        sc.close();
+    } 
 }

@@ -3,8 +3,12 @@ import java.util.*;
 public class VendingMachine {
    
     private Map<Integer, Prodotto> prodotti = new HashMap<>();
+    private Cassa cassa;
+    private Deposito deposito;
 
     public VendingMachine(){
+        cassa = new Cassa();
+        deposito = new Deposito();
         prodotti.put(1, new Prodotto("caffè", 1.10, 100));
         prodotti.put(2, new Prodotto("caffè macchiato", 1.20, 100));
         prodotti.put(3, new Prodotto("cappuccino", 1.30, 100));
@@ -64,5 +68,12 @@ public class VendingMachine {
             System.out.println("L'id inserito non è valido");
         }
     }
-    
+
+    public Cassa getCassa() {
+        return cassa;
+    }
+
+    public Deposito getDeposito() {
+        return deposito;
+    }
 }
